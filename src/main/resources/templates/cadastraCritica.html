@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cadastro de Critica</title>
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta charset="UTF-8" />
+      
+        <style>
+            #sopraAlinhar{
+                width: 100%
+                    
+            }
+            #formCadastroC{
+                border: black solid 2px;
+                display:flex;
+                flex-direction: column;
+            align-items:center;
+               padding-bottom: 10px;
+               padding-top:10px;
+            }
+            #enviaCritica{
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="sopraAlinhar">
+        <form th:action="@{/cadastrar-critica}" th:object="${criticam}" method="POST" id="formCadastroC">
+            <label for="nomeFCriticado">Qual filme gostaria de avaliar?</label>
+            <input th:field="*{filme}" id="nomeFCriticado" type="text"></input>
+            <br>
+            <label for="criticaTexto">E então, oque achou do filme?: </label>
+         <textarea  th:field="*{analise}" id="criticaTexto" rows="5"></textarea>
+            <br>
+                
+              <label for="notaFilme">De 1 à 10, qual nota você daria para o filme?</label>
+            <input id="notaFilme" th:field="*{nota}" type="number"></input>
+            <input id="enviaCritica" type="submit"></input>
+         
+        </form>
+        </div>
+        <script>
+        document.getElementById("enviaCritica").addEventListener("click",function(){ alert("Critica enviada com sucesso! Confira a lista de criticas!"); });    
+        
+        </script>
+    </body>
+</html>

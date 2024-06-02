@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Cadastrar um filme</title>
+    <meta charset="UTF-8" />
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div>
+    <h1>CADASTRO DE FILME</h1>
+    
+    <!-- Adicionamos um id ao formulário para identificá-lo -->
+    <form id="formCadastroFilme">
+        <label for="inNomeFilme">Nome do filme: </label>
+        <input type="text" id="inNomeFilme">
+
+        <label for="sinospseFilme">Sinopse: </label>
+        <textarea id="sinospseFilme" rows="5"></textarea>
+
+        <label for="generoFilme">Gênero:</label>
+        <input type="text" id="generoFilme">
+
+        <label for="anoLancamento">Ano de lançamento: </label>
+        <input type="text" id="anoLancamento">
+
+        <input value="Enviar" type="submit" id="enviaFilme">
+    </form>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#formCadastroFilme').submit(function (event) {
+            event.preventDefault(); // Evita que o formulário seja submetido normalmente
+            
+            // Obtém os dados do formulário
+            var filmeData = {
+                title: $('#inNomeFilme').val(),
+                descriptionn: $('#sinospseFilme').val(),
+                gender: $('#generoFilme').val(),
+                releasedyear: $('#anoLancamento').val()
+            };
+            
+            // Envia os dados para a API
+            $.ajax({
+                type: 'POST',
+                url: 'mooviec/adicionarfilme', // URL da API
+                contentType: 'application/json',
+                data: JSON.stringify(filmeData),
+                success: function (data) {
+                    alert('Filme cadastrado com sucesso!');
+                    return "detalhesdoFilme";
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert('Erro ao cadastrar filme: ' + xhr.responseJSON.message);
+                    // Trate o erro adequadamente, se necessário
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

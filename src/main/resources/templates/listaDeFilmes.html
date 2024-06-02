@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Filmes</title>
+        <meta charset="UTF-8" />
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+    </head>
+    <body>
+        <table>
+            <thead>
+            <tr>
+            <th>Nome do filme</th>
+            <th>Sinospse</th>
+            <th>Genero</th> 
+            <th>Ano de Lançamento</th>         
+             </tr>
+            </thead>
+           <tbody>
+        
+            <tr th:each="filme : ${ListaFilmes}">
+                <td th:text="${filme.titulo}"></td>
+                <td th:text="${filme.sinopse}"></td>
+                <td th:text="${filme.genero}"></td>
+                <td th:text="${filme.anoLancamento}"></td>
+            </tr>
+        </tbody>
+              
+        </table>
+        
+    </body>
+</html>

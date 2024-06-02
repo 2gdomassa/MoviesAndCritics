@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Criticas</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+    </head>
+    <body>
+ 
+        <table>
+            <thead>
+            <tr>
+            <th>Filme Criticado</th>
+            <th>Avaliação</th>
+            <th>Nota</th> 
+            </tr>
+            </thead>
+           <tbody>
+        
+            <tr th:each="critica : ${ListaCriticas}">
+                <td th:text="${critica.filme}"></td>
+                <td th:text="${critica.analise}"></td>
+                <td th:text="${critica.nota}"></td>
+            </tr>
+        </tbody>
+              
+        </table>
+        
+    </body>
+  
+</html>

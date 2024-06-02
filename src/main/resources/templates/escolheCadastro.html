@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Pagina Inicial</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div{
+                width:100%;
+                align-items: center;
+                display:flex;
+                flex-direction: column;
+            }
+            button{
+                margin-bottom:25px;
+                    margin-top:25px;
+            }
+            </style>
+    </head>
+    <body>
+        <div>
+        <button id="verFilmesCadastrados">Ver filmes cadastrados</button>
+        <button id="fazerUmaCritica">Fazer uma critica</button>
+        <button id="cadastrarUmFilme">Cadastrar um filme</button>
+        <button id="verCriticas">Ver todas as críticas</button>
+          </div> 
+        
+        <script>
+        document.getElementById("verFilmesCadastrados").addEventListener("click",function(){
+        window.location.href="http://localhost:8080/lista-filmes";
+        });
+        document.getElementById("fazerUmaCritica").addEventListener("click",function(){
+        window.location.href="http://localhost:8080/cadastrar-critica";
+        });
+        document.getElementById("cadastrarUmFilme").addEventListener("click",function(){
+        window.location.href="http://localhost:8080/cadastrar-filme";
+        });
+        document.getElementById("verCriticas").addEventListener("click",function(){
+        window.location.href="http://localhost:8080/lista-criticas";
+        });
+        
+        </script>
+    </body>
+</html>
